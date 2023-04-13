@@ -1,0 +1,45 @@
+{
+    "name": "homework-2-jasonwoitalla",
+    "version": "1.0.0",
+    "description": "My todo list made in CSCI5117 for homework 2",
+    "main": "src/pages/index.js",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/csci5117s23/homework-2-jasonwoitalla.git"
+    },
+    "author": "Jason Woitalla",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/csci5117s23/homework-2-jasonwoitalla/issues"
+    },
+    "homepage": "https://github.com/csci5117s23/homework-2-jasonwoitalla#readme",
+    "dependencies": {
+        "@clerk/nextjs": "^4.15.0",
+        "@fortawesome/fontawesome-svg-core": "^6.4.0",
+        "@fortawesome/free-regular-svg-icons": "^6.4.0",
+        "@fortawesome/free-solid-svg-icons": "^6.4.0",
+        "@fortawesome/react-fontawesome": "^0.2.0",
+        "bulma": "^0.9.4",
+        "codehooks-crudlify": "^1.0.8",
+        "codehooks-js": "^1.0.11",
+        "emotion": "^11.0.0",
+        "jwt-decode": "^3.1.2",
+        "next": "^13.2.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "sass": "^1.60.0",
+        "swr": "^2.1.2",
+        "yup": "^1.1.0"
+    },
+    "devDependencies": {
+        "eslint": "8.37.0",
+        "eslint-config-next": "13.2.4",
+        "prettier": "^2.8.7"
+    }
+}

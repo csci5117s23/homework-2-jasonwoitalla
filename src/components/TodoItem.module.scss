@@ -1,0 +1,50 @@
+.clickable {
+    cursor: pointer;
+}
+
+.strike {
+    position: relative;
+}
+
+.strike::after {
+    content: "";
+    position: absolute;
+    top: calc(50% + 1px);
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgb($strikethrough-color);
+    animation-name: strike-effect;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.priority {
+    &[data-priority="high"] {
+        color: rgb($high-priority-color);
+        font-weight: 900;
+    }
+    &[data-priority="medium"] {
+        color: rgb($medium-priority-color);
+        font-weight: 700;
+    }
+    &[data-priority="low"] {
+        color: rgb($low-priority-color);
+        font-weight: 500;
+    }
+    &[data-priority="none"] {
+        color: rgb($none-priority-color);
+        font-weight: 300;
+    }
+}
+
+@keyframes strike-effect {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}

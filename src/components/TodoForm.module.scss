@@ -1,0 +1,25 @@
+.prioritySelect {
+    width: 25%;
+}
+
+.highPriority {
+    font-weight: 900;
+    color: rgb($high-priority-color);
+}
+
+.mediumPriority {
+    font-weight: 700;
+    color: rgb($medium-priority-color);
+}
+
+.lowPriority {
+    font-weight: 500;
+    color: rgb($low-priority-color);
+}
+
+.required {
+    &::after {
+        content: "*";
+        color: red;
+    }
+}

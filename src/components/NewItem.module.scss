@@ -1,0 +1,24 @@
+.formWrapper {
+    overflow: hidden;
+    transition: height 0.5s;
+
+    &.open {
+        height: 40em;
+    }
+
+    &.closed {
+        height: 0;
+    }
+}
+
+.icon {
+    transition: transform 0.5s;
+
+    &.rotated {
+        transform: rotate(-45deg);
+    }
+
+    &.notRotated {
+        transform: rotate(0deg);
+    }
+}

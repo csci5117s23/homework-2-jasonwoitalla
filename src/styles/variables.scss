@@ -1,0 +1,12 @@
+$strikethrough-color: 0 0 0;
+
+$high-priority-color: 237 125 49;
+$medium-priority-color: 255 192 0;
+$low-priority-color: 58 189 242;
+$none-priority-color: 0 0 0;
+
+$footer-height: 3.5rem;
+
+:export {
+    strikethroughColor: $strikethrough-color;
+}
