@@ -6,14 +6,14 @@ import * as styles from "./NewItem.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-function NewItem({ startOpen = false }) {
+function NewItem({ startOpen = false, defaultCategory = "", token }) {
     const [isOpen, setIsOpen] = useState(startOpen);
     const [newItem, setNewItem] = useState({
         title: "",
         description: "",
         dueDate: new Date().toISOString(),
         priority: "High",
-        category: "",
+        category: defaultCategory,
     });
 
     function handleToggle() {
@@ -48,7 +48,11 @@ function NewItem({ startOpen = false }) {
                         (isOpen ? styles.open : styles.closed)
                     }
                 >
-                    <TodoForm todoItem={newItem} setTodoItem={setNewItem} />
+                    <TodoForm
+                        todoItem={newItem}
+                        setTodoItem={setNewItem}
+                        token={token}
+                    />
                 </div>
             </div>
         </div>

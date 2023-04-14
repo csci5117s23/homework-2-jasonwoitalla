@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 import useSWR from "swr";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import PageDetails from "@/components/PageDetails";
 import { tokenFetcher } from "@/modules/fetchers";
 
@@ -12,7 +12,11 @@ import TodoView from "@/components/TodoView";
 import TodoForm from "@/components/TodoForm";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo, faPen } from "@fortawesome/free-solid-svg-icons";
+import {
+    faCircleInfo,
+    faPen,
+    faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Todo() {
     const router = useRouter();
@@ -56,6 +60,25 @@ function Todo() {
 
     function disableEditMode() {
         setEditMode(false);
+    }
+
+    async function deleteTodoItem() {
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/todos/${id}`,
+            {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        const resData = await res.json();
+        console.log("Deleted todo item: ", resData);
+
+        if (res.ok) {
+            router.push("/todos");
+        }
     }
 
     return (
@@ -115,6 +138,17 @@ function Todo() {
                                 setTodoItem={setTodoItem}
                                 setSuccess={setUpdateSuccess}
                             />
+                            <div className="mt-4">
+                                <button
+                                    className="button is-danger"
+                                    onClick={deleteTodoItem}
+                                >
+                                    <span className="icon is-small">
+                                        <FontAwesomeIcon icon={faTrash} />
+                                    </span>
+                                    <span>Delete</span>
+                                </button>
+                            </div>
                         </>
                     ) : (
                         <TodoView item={todoItem} setTodoItem={setTodoItem} />
@@ -126,8 +160,3 @@ function Todo() {
 }
 
 export default Todo;
-export const TitleContext = createContext("");
-export const DescriptionContext = createContext("");
-export const DueDateContext = createContext("");
-export const PriorityContext = createContext("");
-export const CategoryContext = createContext("");

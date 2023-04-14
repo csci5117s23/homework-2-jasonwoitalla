@@ -31,14 +31,60 @@
         "category": "Temp Category",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58"
       },
-      "1877bbe0bfa-2ehd08tgvbu55p": {
-        "title": "Editing should work now",
-        "description": "A test of working editing. And this is the working edit text. A second edit, a third edit.",
-        "dueDate": "2023-04-22T00:00:00.000Z",
-        "priority": "Medium",
-        "category": "temp2",
+      "1877c1ed075-osu8epvjewrvnq": {
+        "title": "Another refresh test",
+        "description": "Refresh test, edit",
+        "dueDate": "2023-04-25T00:00:00.000Z",
+        "priority": "High",
+        "category": "temp3",
+        "completed": true,
+        "createdOn": "2023-04-15T18:52:45.079Z",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "_id": "1877bbe0bfa-2ehd08tgvbu55p"
+        "_id": "1877c1ed075-osu8epvjewrvnq"
+      },
+      "1877c208792-d4xyi9jdvc62d6": {
+        "createdOn": "2023-04-13T19:38:39.378Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "category": "Temp Category",
+        "priority": "High",
+        "completed": false,
+        "dueDate": "2023-04-15T17:48:16.930Z",
+        "description": "We are still testing the refresh functionality",
+        "title": "Okay this is yet another refresh test",
+        "_id": "1877c208792-d4xyi9jdvc62d6"
+      },
+      "1877c4b43f2-y0pa7qzpbsqd2g": {
+        "title": "Item Post #1",
+        "description": "Item post #1",
+        "dueDate": "2023-04-15T18:35:09.852Z",
+        "priority": "High",
+        "category": "",
+        "completed": true,
+        "createdOn": "2023-04-15T18:35:20.033Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "_id": "1877c4b43f2-y0pa7qzpbsqd2g"
+      },
+      "1877c4c3360-jnwi967vwr43lp": {
+        "title": "Item Post #2",
+        "description": "Item Post #2",
+        "dueDate": "2023-04-15T18:35:54.341Z",
+        "priority": "High",
+        "category": "",
+        "completed": true,
+        "createdOn": "2023-04-15T18:36:21.289Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "_id": "1877c4c3360-jnwi967vwr43lp"
+      },
+      "1877cfefc46-uynq44n8jjhsyc": {
+        "title": "Long Title and long description, this is going to be a really long title so see what happens when the title is going to overflow. I'll probably just make the overflow hidden and add a capt to the input size.",
+        "description": "This is a long description. This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.",
+        "dueDate": "2023-04-15T21:52:40.395Z",
+        "priority": "High",
+        "category": "",
+        "completed": false,
+        "createdOn": "2023-04-15T21:53:53.547Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "_id": "1877cfefc46-uynq44n8jjhsyc"
       }
     }
   ],

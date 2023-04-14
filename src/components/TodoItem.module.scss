@@ -40,6 +40,16 @@
     }
 }
 
+.todoTitle {
+    overflow: hidden;
+    height: 1.25em;
+}
+
+.description {
+    overflow: hidden;
+    height: 1.75em;
+}
+
 @keyframes strike-effect {
     0% {
         width: 0%;

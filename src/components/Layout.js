@@ -1,6 +1,7 @@
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 import Footer from "./Footer";
 import * as styles from "./Layout.module.scss";
+import Header from "./Header";
 
 function Layout({ children }) {
     if (children.props.isPrivate) {
@@ -9,6 +10,7 @@ function Layout({ children }) {
                 <SignedIn>
                     <div className={styles.pageContainer}>
                         <div className={styles.contentWrap}>
+                            <Header />
                             <main>{children}</main>
                         </div>
                         <Footer />

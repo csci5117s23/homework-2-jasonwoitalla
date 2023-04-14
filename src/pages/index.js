@@ -1,9 +1,18 @@
 import PageDetails from "@/components/PageDetails";
 import { SignIn, UserButton, useAuth } from "@clerk/nextjs";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function HomePage() {
+    const router = useRouter();
     const { isLoaded, userId, sessionId, getToken } = useAuth();
+
+    useEffect(() => {
+        if (userId) {
+            router.push("/todos");
+        }
+    }, [userId, router]);
 
     return (
         <>
@@ -26,11 +35,7 @@ function HomePage() {
                     <div className="columns">
                         <div className="column"></div>
                         <div className="column has-text-centered">
-                            {userId ? (
-                                <UserButton></UserButton>
-                            ) : (
-                                <SignIn></SignIn>
-                            )}
+                            {userId ? null : <SignIn></SignIn>}
                         </div>
                         <div className="column"></div>
                     </div>

@@ -8,6 +8,7 @@ function CategorySelect({ categorySelect, setCategorySelect }) {
     const [categoryInput, setCategoryInput] = useState("");
     const [categories, setCategories] = useState([]);
     const [addMode, setAddMode] = useState(false);
+    const [defaultCategory, setDefaultCategory] = useState("");
 
     const { isLoaded, userId, sessionId, getToken } = useAuth();
 
@@ -26,11 +27,16 @@ function CategorySelect({ categorySelect, setCategorySelect }) {
 
     useEffect(() => {
         if (data) {
+            data.unshift({ id: "none", title: "" });
             setCategories(data);
         } else {
             console.log("No category data");
         }
     }, [data]);
+
+    useEffect(() => {
+        setDefaultCategory(categorySelect);
+    }, [categorySelect]);
 
     async function addCategory(e) {
         e.preventDefault();
@@ -92,13 +98,14 @@ function CategorySelect({ categorySelect, setCategorySelect }) {
                         value={categorySelect}
                         onChange={setCategorySelect}
                     >
-                        {categories.map((category) => {
-                            return (
-                                <option key={category._id}>
-                                    {category.title}
-                                </option>
-                            );
-                        })}
+                        {categories.map((category) => (
+                            <option
+                                key={category._id}
+                                selected={category.title == defaultCategory}
+                            >
+                                {category.title}
+                            </option>
+                        ))}
                     </select>
                 </div>
             ) : null}

@@ -30,7 +30,7 @@ const todosSchema = object({
     dueDate: date().required(),
     completed: boolean().default(() => false),
     priority: string().oneOf(["High", "Medium", "Low"]).required(),
-    category: string().required(),
+    category: string(),
     userId: string().required(),
     createdOn: date().default(() => new Date()),
 });
@@ -99,6 +99,15 @@ app.use("/category/:id", async (req, res, next) => {
         if (doc.userId != userId) {
             res.status(403).end();
             return;
+        }
+
+        if (req.method === "DELETE") {
+            const query = { userId: doc.userId, category: doc.title };
+            const todos = await conn.getMany("todos", { filter: query });
+            for (let todo of todos) {
+                todo.category = "";
+                await conn.updateOne("todos", todo._id, todo);
+            }
         }
     } catch (e) {
         console.log("404 Error: " + e);

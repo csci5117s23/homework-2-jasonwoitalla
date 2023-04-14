@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import CategorySelect from "./CategorySelect";
 import * as styles from "./TodoForm.module.scss";
 import { useAuth } from "@clerk/nextjs";
+import useSWR, { useSWRConfig } from "swr";
 
-function TodoForm({ method = "POST", todoItem, setTodoItem, setSuccess }) {
-    const [token, setToken] = useState(null);
-    const { isLoaded, userId, sessionId, getToken } = useAuth();
-
-    useEffect(() => {
-        async function process() {
-            const myToken = await getToken({ template: "codehooks" });
-            setToken(myToken);
-        }
-        process();
-    }, [getToken, isLoaded]);
+function TodoForm({
+    method = "POST",
+    todoItem,
+    setTodoItem,
+    setSuccess,
+    defaultCategory = "",
+    token,
+}) {
+    const { mutate } = useSWRConfig();
 
     function clearForm(e) {
         e.preventDefault();
@@ -21,9 +20,9 @@ function TodoForm({ method = "POST", todoItem, setTodoItem, setSuccess }) {
         setTodoItem({
             title: "",
             description: "",
-            dueDate: "",
+            dueDate: new Date().toISOString(),
             priority: "",
-            category: "",
+            category: defaultCategory,
         });
     }
 
@@ -69,6 +68,10 @@ function TodoForm({ method = "POST", todoItem, setTodoItem, setSuccess }) {
                     dueDate: myDueDate,
                     priority: todoItem.priority,
                     category: todoItem.category,
+                    completed: todoItem.completed,
+                    createdOn: todoItem.createdOn
+                        ? todoItem.createdOn
+                        : new Date().toISOString(),
                 }),
             });
             const data = await response.json();
@@ -77,12 +80,13 @@ function TodoForm({ method = "POST", todoItem, setTodoItem, setSuccess }) {
                     JSON.stringify(data)
             );
 
-            if (response.status === 200) {
+            if (response.status === 200 && method === "PUT") {
                 setSuccess(true);
             }
 
             if (response.status === 200 && method === "POST") {
                 clearForm(e);
+                mutate(`${process.env.NEXT_PUBLIC_API_URL}/todos`);
             }
         }
     }
