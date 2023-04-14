@@ -3,14 +3,10 @@ import { tokenFetcher } from "@/modules/fetchers";
 import { useAuth } from "@clerk/nextjs";
 import useSWR from "swr";
 
-function CategorySelect({ categorySelect, setCategorySelect }) {
-    const [token, setToken] = useState(null);
+function CategorySelect({ categorySelect, setCategorySelect, token }) {
     const [categoryInput, setCategoryInput] = useState("");
     const [categories, setCategories] = useState([]);
     const [addMode, setAddMode] = useState(false);
-    const [defaultCategory, setDefaultCategory] = useState("");
-
-    const { isLoaded, userId, sessionId, getToken } = useAuth();
 
     const { data, error } = useSWR(
         token ? [`${process.env.NEXT_PUBLIC_API_URL}/category`, token] : null,
@@ -18,25 +14,12 @@ function CategorySelect({ categorySelect, setCategorySelect }) {
     );
 
     useEffect(() => {
-        async function process() {
-            const myToken = await getToken({ template: "codehooks" });
-            setToken(myToken);
-        }
-        process();
-    }, [getToken, isLoaded]);
-
-    useEffect(() => {
         if (data) {
-            data.unshift({ id: "none", title: "" });
             setCategories(data);
         } else {
             console.log("No category data");
         }
     }, [data]);
-
-    useEffect(() => {
-        setDefaultCategory(categorySelect);
-    }, [categorySelect]);
 
     async function addCategory(e) {
         e.preventDefault();
@@ -72,6 +55,7 @@ function CategorySelect({ categorySelect, setCategorySelect }) {
                         placeholder="Your Category"
                         value={categoryInput}
                         onChange={(e) => setCategoryInput(e.target.value)}
+                        maxLength={45}
                     />
                 </p>
             </div>
@@ -98,11 +82,9 @@ function CategorySelect({ categorySelect, setCategorySelect }) {
                         value={categorySelect}
                         onChange={setCategorySelect}
                     >
+                        <option value={""}></option>
                         {categories.map((category) => (
-                            <option
-                                key={category._id}
-                                selected={category.title == defaultCategory}
-                            >
+                            <option key={category._id} value={category.title}>
                                 {category.title}
                             </option>
                         ))}

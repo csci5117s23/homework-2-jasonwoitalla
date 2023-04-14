@@ -2,6 +2,7 @@ import CategorySideBar from "@/components/CategorySidebar";
 import NewItem from "@/components/NewItem";
 import PageDetails from "@/components/PageDetails";
 import TodoList from "@/components/TodoList";
+import withAuth from "@/components/withAuth";
 import { useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -9,6 +10,7 @@ import { useEffect, useState } from "react";
 function TodoCategories() {
     const router = useRouter();
     const { category } = router.query;
+    const [defaultCategory, setDefaultCategory] = useState("");
 
     const [token, setToken] = useState(null);
     const { isLoaded, userId, sessionId, getToken } = useAuth();
@@ -20,6 +22,12 @@ function TodoCategories() {
         }
         process();
     }, [getToken, isLoaded]);
+
+    useEffect(() => {
+        if (category) {
+            setDefaultCategory(category);
+        }
+    }, [category]);
 
     if (!token) return <div>Loading...</div>;
 
@@ -37,16 +45,16 @@ function TodoCategories() {
                         <NewItem
                             startOpen={false}
                             token={token}
-                            defaultCategory={category}
+                            defaultCategory={defaultCategory}
                         />
                         <TodoList
                             completed={false}
                             token={token}
-                            category={category}
+                            category={defaultCategory}
                         />
                     </div>
                     <div className="column">
-                        <CategorySideBar token={token} />
+                        <CategorySideBar parentLink="todos" token={token} />
                     </div>
                 </div>
             </section>
@@ -54,4 +62,4 @@ function TodoCategories() {
     );
 }
 
-export default TodoCategories;
+export default withAuth(TodoCategories);

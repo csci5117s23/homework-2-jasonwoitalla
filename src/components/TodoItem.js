@@ -90,7 +90,9 @@ function TodoItem({ item, authToken }) {
                         </p>
                         <p>Due Date: {getDueDate}</p>
                         {item.category ? (
-                            <p>Category: {item.category}</p>
+                            <p className={styles.category}>
+                                Category: {item.category}
+                            </p>
                         ) : null}
                     </div>
                 </div>

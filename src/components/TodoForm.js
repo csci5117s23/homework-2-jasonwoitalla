@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CategorySelect from "./CategorySelect";
 import * as styles from "./TodoForm.module.scss";
 import { useAuth } from "@clerk/nextjs";
-import useSWR, { useSWRConfig } from "swr";
+import { useRouter } from "next/router";
 
 function TodoForm({
     method = "POST",
@@ -12,7 +12,7 @@ function TodoForm({
     defaultCategory = "",
     token,
 }) {
-    const { mutate } = useSWRConfig();
+    const router = useRouter();
 
     function clearForm(e) {
         e.preventDefault();
@@ -86,7 +86,7 @@ function TodoForm({
 
             if (response.status === 200 && method === "POST") {
                 clearForm(e);
-                mutate(`${process.env.NEXT_PUBLIC_API_URL}/todos`);
+                router.reload();
             }
         }
     }
@@ -104,6 +104,7 @@ function TodoForm({
                             name="title"
                             value={todoItem.title}
                             onChange={setTodoTitle}
+                            maxLength={100}
                             required
                         />
                     </div>
@@ -119,6 +120,7 @@ function TodoForm({
                             name="description"
                             value={todoItem.description}
                             onChange={setTodoDescription}
+                            maxLength={3000}
                             required
                         />
                     </div>
@@ -162,10 +164,17 @@ function TodoForm({
                         </div>
                     </div>
                 </div>
-                <CategorySelect
-                    categorySelect={todoItem.category}
-                    setCategorySelect={setTodoCategory}
-                />
+                {defaultCategory === "" ? (
+                    <CategorySelect
+                        categorySelect={todoItem.category}
+                        setCategorySelect={setTodoCategory}
+                        token={token}
+                    />
+                ) : (
+                    <div className="has-text-weight-bold mb-4">
+                        Category: {defaultCategory}
+                    </div>
+                )}
                 <div className="field is-grouped">
                     <div className="control">
                         <button

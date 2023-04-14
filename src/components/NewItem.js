@@ -51,6 +51,7 @@ function NewItem({ startOpen = false, defaultCategory = "", token }) {
                     <TodoForm
                         todoItem={newItem}
                         setTodoItem={setNewItem}
+                        defaultCategory={defaultCategory}
                         token={token}
                     />
                 </div>

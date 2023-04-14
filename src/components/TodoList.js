@@ -30,7 +30,7 @@ function TodoList({ completed = false, token, category = "" }) {
             });
             setTodos(sortedArray);
         }
-    }, [completed, data]);
+    }, [completed, data, category]);
 
     if (isLoading || !token) {
         return <div>Loading...</div>;

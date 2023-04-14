@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-function TodoView({ item, setTodoItem }) {
+function TodoView({ item, setTodoItem, markCompleted }) {
     const [getDueDate, setDueDate] = useState("");
 
     useEffect(() => {
@@ -27,6 +27,7 @@ function TodoView({ item, setTodoItem }) {
 
     function onCompletedChange(e) {
         setTodoItem({ ...item, completed: !item.completed });
+        markCompleted();
     }
 
     return (

@@ -1,5 +1,7 @@
+import CategorySideBar from "@/components/CategorySidebar";
 import PageDetails from "@/components/PageDetails";
 import TodoList from "@/components/TodoList";
+import withAuth from "@/components/withAuth";
 import { useAuth } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
@@ -29,16 +31,17 @@ function DonePage() {
                 </div>
             </section>
             <section className="section">
-                <div className="container">
-                    <TodoList completed={true} token={token} />
+                <div className="columns">
+                    <div className="column is-four-fifths">
+                        <TodoList completed={true} token={token} />
+                    </div>
+                    <div className="column">
+                        <CategorySideBar parentLink="done" token={token} />
+                    </div>
                 </div>
             </section>
         </>
     );
 }
 
-export async function getStaticProps() {
-    return { props: { isPrivate: true } };
-}
-
-export default DonePage;
+export default withAuth(DonePage);

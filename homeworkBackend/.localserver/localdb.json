@@ -7,28 +7,28 @@
         "description": "This is a test todo, this was an edit",
         "dueDate": "2023-04-15T00:00:00.000Z",
         "priority": "Medium",
-        "category": "Classes"
+        "category": ""
       },
       "1877b581d85-h4t0ladygy5x4c": {
         "title": "New Test Item",
         "description": "This is a new test, hopefully this form will post successfully because all the values are not state based, instead of coming from the DOM. This will make reusing this form component a lot nicer on the view / edit page. This is the edit test.",
         "dueDate": "2023-04-15T00:00:00.000Z",
         "priority": "Low",
-        "category": "Temp Category"
+        "category": ""
       },
       "1877bb781bf-6x7i8ns73m59g7": {
         "title": "This is my new Edit attempt",
         "description": "I need a long description so that I can fix the visual issue for when the description goes off the screen, that is going to be a problem so I need to fix that really quick, but I need a long one to test that one. I guess we'll see if this is long enough and how long it is going to look. Another edit attempt!",
         "dueDate": "2023-04-22T00:00:00.000Z",
         "priority": "Medium",
-        "category": "Temp Category"
+        "category": ""
       },
       "1877bb927e9-ru7qjzh1ku00t3": {
         "title": "Another attempt",
         "description": "I need a long description so that I can fix the visual issue for when the description goes off the screen, that is going to be a problem so I need to fix that really quick, but I need a long one to test that one. I guess we'll see if this is long enough and how long it is going to look. [redacted]",
         "dueDate": "2023-04-22T00:00:00.000Z",
         "priority": "Medium",
-        "category": "Temp Category",
+        "category": "",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58"
       },
       "1877c1ed075-osu8epvjewrvnq": {
@@ -36,21 +36,21 @@
         "description": "Refresh test, edit",
         "dueDate": "2023-04-25T00:00:00.000Z",
         "priority": "High",
-        "category": "temp3",
+        "category": "",
         "completed": true,
         "createdOn": "2023-04-15T18:52:45.079Z",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
         "_id": "1877c1ed075-osu8epvjewrvnq"
       },
       "1877c208792-d4xyi9jdvc62d6": {
+        "title": "Okay this is yet another refresh test",
+        "description": "We are still testing the refresh functionality",
+        "dueDate": "2023-04-15T17:48:16.930Z",
+        "priority": "High",
+        "category": "",
+        "completed": true,
         "createdOn": "2023-04-13T19:38:39.378Z",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "category": "Temp Category",
-        "priority": "High",
-        "completed": false,
-        "dueDate": "2023-04-15T17:48:16.930Z",
-        "description": "We are still testing the refresh functionality",
-        "title": "Okay this is yet another refresh test",
         "_id": "1877c208792-d4xyi9jdvc62d6"
       },
       "1877c4b43f2-y0pa7qzpbsqd2g": {
@@ -75,32 +75,88 @@
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
         "_id": "1877c4c3360-jnwi967vwr43lp"
       },
-      "1877cfefc46-uynq44n8jjhsyc": {
-        "title": "Long Title and long description, this is going to be a really long title so see what happens when the title is going to overflow. I'll probably just make the overflow hidden and add a capt to the input size.",
-        "description": "This is a long description. This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.This is a long description.",
-        "dueDate": "2023-04-15T21:52:40.395Z",
+      "1877d7ffa59-ca01vzrrkdh0u8": {
+        "createdOn": "2023-04-16T17:05:51.261Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "category": "",
+        "priority": "Low",
+        "completed": false,
+        "dueDate": "2023-04-19T00:00:00.000Z",
+        "description": "something new is now here, how fun!",
+        "title": "This is something new",
+        "_id": "1877d7ffa59-ca01vzrrkdh0u8"
+      },
+      "1877d811033-oqt05lxoxkbohd": {
+        "createdOn": "2023-04-16T17:07:02.350Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "category": "",
+        "priority": "High",
+        "completed": false,
+        "dueDate": "2023-04-16T17:06:41.171Z",
+        "description": "new category added",
+        "title": "This is something even more new",
+        "_id": "1877d811033-oqt05lxoxkbohd"
+      },
+      "1877d894e74-b036kwnxks98tu": {
+        "title": "This should be a project category",
+        "description": "Testing project category",
+        "dueDate": "2023-04-27T00:00:00.000Z",
+        "priority": "High",
+        "category": "Projects",
+        "completed": true,
+        "createdOn": "2023-04-16T17:16:02.553Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "_id": "1877d894e74-b036kwnxks98tu"
+      },
+      "1877d99ffe9-dcimrtcbouwox8": {
+        "title": "We must keep testing for this to work",
+        "description": "I want this to work",
+        "dueDate": "2023-04-16T17:33:52.991Z",
         "priority": "High",
         "category": "",
-        "completed": false,
-        "createdOn": "2023-04-15T21:53:53.547Z",
+        "completed": true,
+        "createdOn": "2023-04-16T17:34:16.619Z",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "_id": "1877cfefc46-uynq44n8jjhsyc"
+        "_id": "1877d99ffe9-dcimrtcbouwox8"
+      },
+      "1877dc881da-e1og2f57fh9xzt": {
+        "title": "Final post test",
+        "description": "this is a last quick post test just to make sure shit is working how I expect. Edit test",
+        "dueDate": "2023-04-18T00:00:00.000Z",
+        "priority": "Medium",
+        "category": "Projects",
+        "completed": true,
+        "createdOn": "2023-04-16T18:25:04.551Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "_id": "1877dc881da-e1og2f57fh9xzt"
+      },
+      "1877dcf1da2-snlitbpo0o8glg": {
+        "title": "refresh test",
+        "description": "refresh test",
+        "dueDate": "2023-04-16T18:28:43.063Z",
+        "priority": "High",
+        "category": "",
+        "completed": true,
+        "createdOn": "2023-04-16T18:32:17.655Z",
+        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
+        "_id": "1877dcf1da2-snlitbpo0o8glg"
+      },
+      "1877dd609af-crz1cxnnmfq27o": {
+        "title": "Testing some new todo item",
+        "description": "new item",
+        "dueDate": "2023-04-11T00:00:00.000Z",
+        "priority": "Medium",
+        "category": "",
+        "completed": false,
+        "createdOn": "2023-04-16T18:39:51.177Z",
+        "userId": "user_2OWJLHbrchcNaU6YBsf4VPG0YzS",
+        "_id": "1877dd609af-crz1cxnnmfq27o"
       }
     }
   ],
   [
     "category",
     {
-      "1877a8c8de1-y76dft8vo9zkza": {
-        "title": "Classes",
-        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "_id": "1877a8c8de1-y76dft8vo9zkza"
-      },
-      "1877aa192ae-jtgttkoa7rfs9x": {
-        "title": "Classes",
-        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "_id": "1877aa192ae-jtgttkoa7rfs9x"
-      },
       "1877aa27852-lajb7zjel2koro": {
         "title": "Classes",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
@@ -110,21 +166,6 @@
         "title": "Projects",
         "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
         "_id": "1877aa80273-puqh8vlp4ngt1x"
-      },
-      "1877ab7e99f-y4qv4eveexaqe2": {
-        "title": "Temp Category",
-        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "_id": "1877ab7e99f-y4qv4eveexaqe2"
-      },
-      "1877ab9a24f-fgb4gzbhbm24dm": {
-        "title": "temp2",
-        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "_id": "1877ab9a24f-fgb4gzbhbm24dm"
-      },
-      "1877ac5c63a-4ojrqvdonu329e": {
-        "title": "temp3",
-        "userId": "user_2ONgplWoqwFc6uSJBXAupVdZI58",
-        "_id": "1877ac5c63a-4ojrqvdonu329e"
       }
     }
   ],

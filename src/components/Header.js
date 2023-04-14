@@ -1,3 +1,4 @@
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -11,9 +12,7 @@ function Header() {
                 role="navigation"
                 aria-label="main navigation"
             >
-                <div className="navbar-brand">
-                    <p>Jason&apos;s Todo App</p>
-                </div>
+                <div className="navbar-brand"></div>
                 <div className="navbar-menu">
                     <div className="navbar-start">
                         <Link
@@ -40,9 +39,17 @@ function Header() {
                     <div className="navbar-end">
                         <div className="navbar-item">
                             <div className="buttons">
-                                <button className="button is-primary">
-                                    Sign Out
-                                </button>
+                                <SignedIn>
+                                    <UserButton />
+                                </SignedIn>
+                                <SignedOut>
+                                    <Link
+                                        href="/"
+                                        className="button is-primary"
+                                    >
+                                        Sign In
+                                    </Link>
+                                </SignedOut>
                             </div>
                         </div>
                     </div>

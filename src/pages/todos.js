@@ -2,6 +2,7 @@ import CategorySideBar from "@/components/CategorySidebar";
 import NewItem from "@/components/NewItem";
 import PageDetails from "@/components/PageDetails";
 import TodoList from "@/components/TodoList";
+import withAuth from "@/components/withAuth";
 import { useAuth } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
@@ -34,7 +35,7 @@ function TodoPage() {
                         <TodoList completed={false} token={token} />
                     </div>
                     <div className="column">
-                        <CategorySideBar token={token} />
+                        <CategorySideBar parentLink="todos" token={token} />
                     </div>
                 </div>
             </section>
@@ -42,8 +43,4 @@ function TodoPage() {
     );
 }
 
-export async function getStaticProps() {
-    return { props: { isPrivate: true } };
-}
-
-export default TodoPage;
+export default withAuth(TodoPage);

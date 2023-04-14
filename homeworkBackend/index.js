@@ -25,12 +25,12 @@ app.use(userAuth);
  */
 
 const todosSchema = object({
-    title: string().required(),
-    description: string().required(),
+    title: string().required().max(100),
+    description: string().required().max(3000),
     dueDate: date().required(),
     completed: boolean().default(() => false),
     priority: string().oneOf(["High", "Medium", "Low"]).required(),
-    category: string(),
+    category: string().max(45),
     userId: string().required(),
     createdOn: date().default(() => new Date()),
 });
@@ -90,6 +90,7 @@ app.use("/todos/:id", async (req, res, next) => {
 });
 
 app.use("/category/:id", async (req, res, next) => {
+    console.log("Category request: " + req.method + " " + req.params.ID);
     const id = req.params.ID;
     const userId = req.user_token.sub;
 
@@ -103,11 +104,8 @@ app.use("/category/:id", async (req, res, next) => {
 
         if (req.method === "DELETE") {
             const query = { userId: doc.userId, category: doc.title };
-            const todos = await conn.getMany("todos", { filter: query });
-            for (let todo of todos) {
-                todo.category = "";
-                await conn.updateOne("todos", todo._id, todo);
-            }
+            const newDoc = { $set: { category: "" } };
+            await conn.updateMany("todos", newDoc, { filter: query });
         }
     } catch (e) {
         console.log("404 Error: " + e);

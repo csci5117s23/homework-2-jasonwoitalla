@@ -17,6 +17,7 @@ import {
     faPen,
     faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import withAuth from "@/components/withAuth";
 
 function Todo() {
     const router = useRouter();
@@ -25,6 +26,7 @@ function Todo() {
     const [editMode, setEditMode] = useState(false);
     const [todoItem, setTodoItem] = useState(null);
     const [updateSuccess, setUpdateSuccess] = useState(false);
+    const [changing, setChanging] = useState(false);
 
     const { isLoaded, userId, sessionId, getToken } = useAuth();
     const [token, setToken] = useState("");
@@ -79,6 +81,35 @@ function Todo() {
         if (res.ok) {
             router.push("/todos");
         }
+    }
+
+    async function markCompleted() {
+        if (changing) return;
+
+        setChanging(true);
+
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/todos/${id}`,
+            {
+                method: "PUT",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title: todoItem.title,
+                    description: todoItem.description,
+                    dueDate: todoItem.dueDate,
+                    priority: todoItem.priority,
+                    category: todoItem.category,
+                    completed: !todoItem.completed,
+                    createdOn: todoItem.createdOn,
+                }),
+            }
+        );
+        const data = await res.json();
+        console.log("Finished checking the item off: " + JSON.stringify(data));
+        setChanging(false);
     }
 
     return (
@@ -137,6 +168,7 @@ function Todo() {
                                 todoItem={todoItem}
                                 setTodoItem={setTodoItem}
                                 setSuccess={setUpdateSuccess}
+                                token={token}
                             />
                             <div className="mt-4">
                                 <button
@@ -151,7 +183,11 @@ function Todo() {
                             </div>
                         </>
                     ) : (
-                        <TodoView item={todoItem} setTodoItem={setTodoItem} />
+                        <TodoView
+                            item={todoItem}
+                            setTodoItem={setTodoItem}
+                            markCompleted={markCompleted}
+                        />
                     )}
                 </div>
             </div>
@@ -159,4 +195,4 @@ function Todo() {
     );
 }
 
-export default Todo;
+export default withAuth(Todo);
